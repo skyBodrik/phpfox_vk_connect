@@ -29,6 +29,9 @@ class Service extends Model
         $email = $userData['email'];
         $firstName = $userData['first_name'];
         $lastName = $userData['last_name'];
+        $birthday = $userData['birthday'];
+        $city = $userData['city']['title'] ?? null;
+        $country = $userData['country']['title'] ?? null;
         $url = null;
         $blankEmail = false;
         $bSkipPass = false;
@@ -56,6 +59,28 @@ class Service extends Model
             //don't reset current user password if account existed
             $_password = $user['password'];
             $bSkipPass = true;
+//
+//            if ($userData['gender'] == AccountSex::MALE) {
+//                $iGender = 1;
+//            } elseif ($userData['gender'] == AccountSex::FEMALE) {
+//                $iGender = 2;
+//            } else {
+//                $iGender = 0;
+//            }
+//
+//            define('PHPFOX_IS_CUSTOM_FIELD_UPDATE', true);
+//            $aUser = [
+//                'country_iso' => 'RU',
+//                'city_location' => $city,
+//                'gender' => $iGender
+//            ];
+//
+//            $bReturnUser = Phpfox::getService('user.process')->update($user['user_id'], $aUser);
+
+
+            //(($sPlugin = Phpfox_Plugin::get('user.service_process_add_extra')) ? eval($sPlugin) : false);
+
+            //var_dump($bReturnUser); die;
         } else {
             if (!Phpfox::getParam('user.allow_user_registration')) {
                 return false;
@@ -65,9 +90,9 @@ class Service extends Model
             }
             $_password = $vkId . uniqid();
             $password = (new Hash())->make($_password);
-            if ($userData['email'] == AccountSex::MALE) {
+            if ($userData['gender'] == AccountSex::MALE) {
                 $iGender = 1;
-            } elseif ($userData['email'] == AccountSex::FEMALE) {
+            } elseif ($userData['gender'] == AccountSex::FEMALE) {
                 $iGender = 2;
             } else {
                 $iGender = 0;
@@ -78,6 +103,7 @@ class Service extends Model
                 'email' => $email,
                 'password' => $password,
                 'gender' => $iGender,
+                'birthday' => $birthday,
                 'full_name' => ($firstName . ' ' . $lastName),
                 'user_name' => ($url === null ? 'vk-' . $vkId : str_replace('.', '-', $url)),
                 'user_image' => '',
@@ -91,6 +117,15 @@ class Service extends Model
 
             $id = $this->db->insert(':user', $aInsert);
             $bReturn = $id;
+
+            define('PHPFOX_IS_CUSTOM_FIELD_UPDATE', true);
+            $aUser = [
+                'country_iso' => 'RU',
+                'city_location' => $city,
+                'gender' => $iGender
+            ];
+
+            $bReturnUser = Phpfox::getService('user.process')->update($user['user_id'], $aUser);
 
             // Get user's avatar
             $avatar = $userData['photo']['medium'];

@@ -144,7 +144,7 @@ if (Phpfox::isUser() && $Url->uri() == '/user/setting/' && substr(Phpfox::getUse
         $vk = new VK\Client\VKApiClient();
         $response = $vk->users()->get($accessToken, [
             'user_ids'  => [$vkUserId],
-            'fields'    => ['screen_name', 'nickname', 'city', 'email', 'sex', 'photo', 'photo_medium'],
+            'fields'    => ['screen_name', 'nickname', 'city', 'country', 'bdate', 'email', 'sex', 'photo', 'photo_medium'],
         ]);
 
         if (count($response) === 1 && isset($response[0])) {
@@ -156,6 +156,9 @@ if (Phpfox::isUser() && $Url->uri() == '/user/setting/' && substr(Phpfox::getUse
                 'last_name' => $response[0]['last_name'],
                 'nick_name' => $response[0]['screen_name'],
                 'gender' => $response[0]['sex'],
+                'birthday' => $response[0]['bdate'] ?? null,
+                'country' => $response[0]['country'] ?? null,
+                'city' => $response[0]['city'] ?? null,
                 'photo' => [
                     'tiny' => $response[0]['photo'] ?? null,
                     'medium' => $response[0]['photo_medium'] ?? null,
