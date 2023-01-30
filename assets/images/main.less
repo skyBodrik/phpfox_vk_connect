@@ -1,0 +1,127 @@
+.vk_login_go{
+    .s-5;
+    display: flex !important;
+    .items-center();
+    color: #fff;
+    font-size: 14px;
+    margin-top: 0;
+    border-radius:@btn-radius;
+    padding:0 !important;
+    span.ico{
+        .mr-1;
+        font-size: 16px;
+    }
+    .core-vk-item-vk-icon{
+        .s-5;
+        max-height: 100%;
+        max-width: 100%;
+        display: inline-flex;
+    }
+}
+.custom_signup_vk, .custom_login_vk, .site_menu, .guest_login_small {
+    .vk_login_go {
+        width: 100%;
+    }
+}
+.site_menu {
+    @media (max-width: @screen-sm-max) and (min-width: @screen-xs-min) {
+        .navbar-collapse & {
+            .vk_login_go {
+                display: none !important;
+            }
+        }
+    }
+    @media (max-width: 479px) {
+        .vk_login_go {
+            width: calc(~"100% - 20px");
+        }
+    }
+}
+.vk_login{
+    .vk_login_go{
+        .core-vk-item-vk-icon{
+            .s-2;
+            display: inline-flex;
+            .mr-1;
+        }
+    }
+}
+.core-vk-item-vk-icon{
+    img{
+        width: 100%;
+        height: 100%;
+    }
+}
+.vk-login-header{
+    .vk_login_go{
+        color: #fff !important;
+        background: transparent !important;
+        text-align: center;
+        font-size: 16px;
+        .vk-login-label{
+            display: none;
+        }
+    }
+}
+
+//vk in login page
+#page_user_login,#page_user_register{
+    #content{
+        .vk_login_go{
+            width: 250px;
+        }
+    }   
+}
+
+//pop-up
+.js_box_content{
+    .custom_login_vk,.custom_signup_vk{
+        .vk_login_go {
+            width: 100%;
+        }
+        .item-or-line{
+            font-size: 14px;
+            color: @gray-dark;
+            text-transform: uppercase;
+            position: relative;
+            display: flex;
+            justify-content:center;
+            & > span{
+                width: 40px;
+                background: #fff;
+                text-align: center;
+                display: block;
+                z-index: 1;
+            }
+            &:before{
+                content: "";
+                position: absolute;
+                left: 0;
+                right: 0;
+                height: 1px;
+                background: @border-color-light;
+                bottom: 50%;
+            }
+        }
+    }
+}
+
+.guest_login_small{
+    &.vk-login-wrapper {
+        display: inline-flex;
+        .vk-login-header{
+            .ml-1();
+        }
+    }
+}
+.login-menu-btns-xs{
+    &.vk-login-wrapper {
+        @media (max-width: 479px){
+            display: flex;
+            .vk_login_go {
+                margin: 0;
+                min-width: @grid-point*5;
+            }
+        }
+    }
+}

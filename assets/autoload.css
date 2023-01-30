@@ -1,0 +1,77 @@
+#header_menu #js_block_border_user_login-block .title {
+  margin-bottom: 10px;
+}
+#header_menu #js_block_border_user_login-block form > .table:first-of-type:before {
+  content: ' ';
+  display: block;
+  padding-bottom: 15px;
+  margin-bottom: 15px;
+}
+.guest_login_small .vk_login_go {
+  border-color: transparent !important;
+}
+.vk_login_go {
+  cursor: pointer;
+  line-height: 30px;
+  border-radius: 3px;
+}
+.vk_login_go .core-vk-item-vk-icon {
+  width: 32px;
+  height: 32px;
+  max-height: 100%;
+  max-width: 100%;
+  display: inline-flex;
+}
+.guest-login-small .vk-login-header {
+  border-left: 1px solid #dcdcdc;
+}
+html[dir="ltr"] .guest-login-small .vk-login-header {
+  padding-left: 8px;
+}
+.vk-login-header {
+  margin-left: 8px;
+}
+
+.vk_login .vk_login_go {
+  cursor: pointer;
+  background: #1877f2 !important;
+  line-height: 30px;
+  border-radius: 3px;
+  width: 100%;
+  margin-top: 8px; !important;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 14px;
+  border-radius: 4px;
+  padding: 0 !important;
+}
+
+.vk-login-header .vk_login_go .vk-login-label {
+  display: none;
+}
+.vk_login_go > i {
+  margin-right: 8px;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 500;
+}
+.vk_login_go:hover {
+  transition: all 300ms ease;
+  color: #fff;
+}
+.navbar-collapse .vk_login_go {
+  margin: 0 10px 10px 10px;
+}
+@media (min-width: 481px) {
+  .navbar-collapse .vk_login_go {
+    display: none;
+  }
+}
+.custom_signup .vk_login_go,
+.custom_login .vk_login_go {
+  display: inline-block;
+  padding-right: 10px;
+}

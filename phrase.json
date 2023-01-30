@@ -1,0 +1,14 @@
+{
+  "Vk Login Enabled" : "",
+  "Vk Application ID" : "",
+  "Vk App Secret" : "",
+  "Require Email" : "",
+  "notice_uppercase": "Notice",
+  "you_just_signed_up_successfully_with_email_email": "You just signed up successfully with email: {email}",
+  "click_here_to_change_your_password": "Click <a href=\"{link}\">here</a> to change your password.",
+  "vk_app": "Vk Connect",
+  "sign_in_with_vk": "Sign In with Vk",
+  "sign_up_with_vk": "Sign Up with Vk",
+  "permissions_denied": "Permissions denied!",
+  "thank_you_for_adding_your_email": "Thank you for adding your email!"
+}
